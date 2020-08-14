@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.feature_page_content{
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  .info_blocks{
+    border-radius: 7px;
+    align-items: center;
+    
+    .carousel_titles{
+      color: red;
+      text-align: center;
+      font-size: 2.5rem;
+    }
+    
+    .carousel_info{
+      color: black;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+  }
+}
+

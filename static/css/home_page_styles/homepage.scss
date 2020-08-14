@@ -1,0 +1,110 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.main_page{
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+
+  .page_info{
+    margin-top: 5%;
+
+    .page_info_title{
+      color: red;
+      text-align: center;
+      margin-bottom: 5%;
+    }
+
+    .page_info_info{
+      color: black;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  }
+
+  .page_content{
+    margin-top: 5%;
+
+    .page_content_title{
+      color: rgb(80, 255, 136);
+      text-align: center;
+    }
+
+    .error_message{
+      color: red;
+      text-align: center;
+      visibility: hidden;
+      border-radius: 6px;
+      animation-name: errorAnimation;
+      animation-duration: 5s;
+      background-color: rgb(253, 243, 243);
+    }
+
+    .page_content_form{
+      margin-top: 10%;
+      border-radius: 8px;
+      background-color: rgb(248, 248, 248);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px;
+      width: 40vw;
+      height: 40vh;
+      max-width:465px;
+      max-height:363px;
+      .image_input{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5%;
+        cursor: pointer;
+      }
+
+      .filter_selection{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        
+
+        .checkbox_labels{
+          border-bottom: 1px solid black;
+        }
+
+        .filters_box{
+          cursor: pointer;
+          .filter_options{
+            cursor: pointer;
+          }
+        }
+      }
+
+      .submit_button{
+        border: none;
+        border: 1px solid black;
+        background-color: white;
+        color: black;
+        border-radius: 7px;
+        transition: color 0.6s, background-color 0.6s;
+
+        &:hover{
+          background-color: rgb(0, 0, 0);
+          color: rgb(255, 255, 255);         
+        }
+      }
+    }
+  } 
+}
+
+
+@keyframes errorAnimation {
+  from {visibility: visible;}
+  to {visibility: hidden;}
+}

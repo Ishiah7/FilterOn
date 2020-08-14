@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/home_page_styles/homepage.css')}}">
+  <title>FilterOn</title>
+</head>
+<body>
+  <!-- Navbar-->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">FilterOn</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/features">Features</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Main Page Content -->
+
+  <div class="main_page">
+    <section class="page_info">
+      <h1 class="page_info_title">Welcome To FilterOn</h1>
+      <p class="page_info_info">Simple, easy to use, image filter.</p>
+      <p class="page_info_info">Simply select your image and choose a filter.</p>
+      <p class="page_info_info">Afterwards, just click "Apply Effect" and you're good to go.</p>
+    </section>
+
+    <section class="page_content">
+      <h2 class="page_content_title">Select An Image and Filter:</h2>
+      {% if message %}
+        <p class="error_message">{{ message }}</p>
+      {% endif %}
+      <form class="page_content_form" action="/" method="POST" enctype="multipart/form-data">
+        <input class="image_input" type="file" id="image" name="image" oninput="filesize(this);">
+
+        <div class="filter_selection">
+          <label class="checkbox_labels" for="grayscale">Select Filter:</label>
+          <select name="filters_box" id="filters">
+            <option class="filter_options" value="grayscale">Grayscale</option>
+            <option class="filter_options" value="GaussianBlur">Blur</option>
+            <option class="filter_options" value="CONTOUR">Contour</option>
+            <option class="filter_options" value="DETAIL">Detail</option>
+            <option class="filter_options" value="EDGE_ENHANCE">Edge Enhance</option>
+            <option class="filter_options" value="EDGE_ENHANCE_MORE">Edge Enhance More</option>
+            <option class="filter_options" value="EMBOSS">Emboss</option>
+            <option class="filter_options" value="FIND_EDGES">Find Edges</option>
+            <option class="filter_options" value="SHARPEN">Sharpen</option>
+            <option class="filter_options" value="SMOOTH">Smooth</option>
+            <option class="filter_options" value="SMOOTH_MORE">Smooth More</option>
+          </select>
+        </div>
+        
+
+        <button class="submit_button" type="submit">Apply Effect</button>
+      </form>
+    </section>
+  </div>
+
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<script>
+  function filesize(elem){
+    document.cookie = `filesize=${elem.files[0].size}`
+  }
+</script>
+</body>
+</html>
